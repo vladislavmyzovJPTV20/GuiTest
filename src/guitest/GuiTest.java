@@ -5,7 +5,6 @@
  */
 package guitest;
 
-import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,16 +32,12 @@ public class GuiTest extends JFrame{
         //super.getContentPane().setLayout(new BorderLayout());
         
         jLabelTitle = new JLabel("Hello, JPTV20!",SwingConstants.CENTER);
-        jLabelTitle.setFont(new java.awt.Font("Tahome", 0, 24));
+        jLabelTitle.setFont(new java.awt.Font("Tahoma", 0, 24));
         jLabelTitle.setPreferredSize(new Dimension(480,27));
         jLabelTitle.setMaximumSize(new Dimension(480,27));
         JPanel panelTitle = new JPanel();
         panelTitle.setPreferredSize(new Dimension(480,54));
         panelTitle.add(jLabelTitle);
-        
-        jPanelContent = new JPanel();
-        jPanelContent.setLayout(new BoxLayout(jPanelContent, BoxLayout.Y_AXIS));
-        jPanelContent.add(jLabelTitle);
         
         jTextField = new JTextField(SwingConstants.CENTER);
         jTextField.setPreferredSize(new Dimension(200,37));
@@ -51,7 +46,6 @@ public class GuiTest extends JFrame{
         panelTextField.setPreferredSize(new Dimension(480,27));
         panelTextField.setMaximumSize(new Dimension(480,27));
         panelTextField.add(jTextField);
-        jPanelContent.add(jTextField);
         
         jButtonSetTextToLabel = new JButton();
         jButtonSetTextToLabel.setText("Изменить текст в метке");
