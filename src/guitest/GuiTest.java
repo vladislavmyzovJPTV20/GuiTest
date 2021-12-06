@@ -5,9 +5,11 @@
  */
 package guitest;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -25,7 +27,18 @@ public class GuiTest extends JFrame{
     private JPanel jPanelContent;
     private JTextField jTextField;
     private JButton jButtonSetTextToLabel;
+    
     public GuiTest() {
+        initComponents();
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+
+    private void initComponents() {
+        super.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        super.setLocationRelativeTo(null);
         super.setPreferredSize(new Dimension(480, 290));
         super.setMaximumSize(new Dimension(480, 290));
         super.setMinimumSize(new Dimension(480, 290));
@@ -33,12 +46,18 @@ public class GuiTest extends JFrame{
         
         jLabelTitle = new JLabel("Hello, JPTV20!",SwingConstants.CENTER);
         jLabelTitle.setFont(new java.awt.Font("Tahoma", 0, 24));
-        jLabelTitle.setPreferredSize(new Dimension(480,27));
-        jLabelTitle.setMaximumSize(new Dimension(480,27));
-        JPanel panelTitle = new JPanel();
-        panelTitle.setPreferredSize(new Dimension(480,54));
-        panelTitle.add(jLabelTitle);
+        jLabelTitle.setMaximumSize(new Dimension(480,57));
+        jLabelTitle.setPreferredSize(jLabelTitle.getMaximumSize());
+        jLabelTitle.setMinimumSize(jLabelTitle.getMaximumSize());
+        jLabelTitle.setBorder(BorderFactory.createLineBorder(Color.black));
+        //jLabelTitle.setAlignmentY(CENTER_ALIGNMENT);
         
+//        JPanel panelTitle = new JPanel();
+//        panelTitle.setPreferredSize(new Dimension(480,54));
+//        panelTitle.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+//        panelTitle.setAlignmentY(CENTER_ALIGNMENT);
+//        panelTitle.add(jLabelTitle,"push, align center");
+//        
         jTextField = new JTextField(SwingConstants.CENTER);
         jTextField.setPreferredSize(new Dimension(200,37));
         jTextField.setMaximumSize(jTextField.getPreferredSize());
@@ -61,16 +80,12 @@ public class GuiTest extends JFrame{
         panelButton.add(jButtonSetTextToLabel);
         jPanelContent = new JPanel();
         jPanelContent.setLayout(new BoxLayout(jPanelContent,BoxLayout.Y_AXIS));
-        jPanelContent.add(panelTitle);
+        jPanelContent.add(jLabelTitle);
         jPanelContent.add(panelTextField);
         jPanelContent.add(panelButton);
         this.add(jPanelContent);
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     }
-
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         System.out.println("Hello JPTV20");
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -79,5 +94,4 @@ public class GuiTest extends JFrame{
             }
         });
     }
-    
 }
